@@ -46,10 +46,6 @@ Yazid 找到了正在参加清华校赛的你，请你来帮他解决这个问�
 {%- do vars.__setitem__('sample_id', 1) -%}
 {{ self.sample_text() }}
 
-{{ self.title_sample_description() }}
-
-样例解释咕咕咕。
-
 ## {{ _('Subtasks') }}
 
 保证 $\left| S\right|\leq 10^6$，$\sum\left| S\right|\leq 5\times 10^6$。
