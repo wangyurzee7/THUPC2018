@@ -1,0 +1,19 @@
+!!python/unicode 'args': {!!python/unicode 'n': 1000}
+!!python/unicode 'compile': {!!python/unicode 'c': !!python/unicode '-O2 -std=c14',
+  !!python/unicode 'cpp': !!python/unicode '-O2 -std=c++14', !!python/unicode 'java': !!python/unicode '',
+  !!python/unicode 'pas': !!python/unicode '-O2', !!python/unicode 'py': !!python/unicode ''}
+!!python/unicode 'data':
+- cases: [1]
+!!python/unicode 'folder': !!python/unicode 'problem'
+!!python/unicode 'memory limit': !!python/unicode '512 MB'
+!!python/unicode 'name': citing
+!!python/unicode 'partial score': false
+!!python/unicode 'pre':
+- cases: [1]
+!!python/unicode 'samples':
+- cases: [1]
+!!python/unicode 'time limit': 1.0
+!!python/unicode 'title': {!!python/unicode 'zh-cn': 用于试题标题的中文名称}
+!!python/unicode 'type': !!python/unicode 'program'
+!!python/unicode 'users': {}
+!!python/unicode 'version': 2
