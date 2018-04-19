@@ -1,0 +1,21 @@
+args: {maxn: 100}
+compile: {c: -O2, cpp: -O2 -std=c++11, java: '', pas: -O2, py: ''}
+data:
+- cases: [1]
+  score: 100
+folder: problem
+memory limit: 512 MB
+name: problem
+partial score: false
+pre: []
+samples:
+- cases: [1]
+time limit: 1.5
+title: {zh-cn: 为最美的那位献上花朵}
+type: program
+users:
+  zhx:
+    std:
+      expected: {'>=': 100}
+      path: zhx/pribme.cpp
+version: 2
