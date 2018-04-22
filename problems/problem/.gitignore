@@ -28,3 +28,4 @@ arbiter*
 *.tmp
 **.class
 **.pyc
+*.pptx

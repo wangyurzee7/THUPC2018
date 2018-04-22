@@ -3,24 +3,6 @@ compile: {c: -O2, cpp: -O2 -std=c++11, java: '', pas: -O2, py: ''}
 data:
 - cases: [1]
   score: 10
-- cases: [2]
-  score: 10
-- cases: [3]
-  score: 10
-- cases: [4]
-  score: 10
-- cases: [5]
-  score: 10
-- cases: [6]
-  score: 10
-- cases: [7]
-  score: 10
-- cases: [8]
-  score: 10
-- cases: [9]
-  score: 10
-- cases: [10]
-  score: 10
 folder: problem
 memory limit: 512 MB
 name: problem
