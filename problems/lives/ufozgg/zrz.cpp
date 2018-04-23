@@ -43,7 +43,7 @@ int calc()
 			if(checksame(i,j))
 				return true;
 	}
-	//printf("!!!");
+	printf("!!!");
 }
 void dfs(int x,int y)
 {
