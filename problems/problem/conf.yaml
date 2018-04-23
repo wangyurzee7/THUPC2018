@@ -2,7 +2,7 @@ args: {maxn: 100}
 compile: {c: -O2, cpp: -O2 -std=c++11, java: '', pas: -O2, py: ''}
 data:
 - cases: [1]
-  score: 10
+  score: 100
 folder: problem
 memory limit: 512 MB
 name: problem
