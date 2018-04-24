@@ -4,12 +4,11 @@ using namespace std;
 #define g(x, y, z) for(int x = (y); x < (z); ++x)
 #define h(x, y, z) for(int x = (y); x >= (z); --x)
 
-const int MAX_N = 17;
+const int MAX_N = 57;
 const int MAX_M = 1007;
 const int MAX_Q = 100007;
-const int MAX_EV = MAX_N * MAX_M * MAX_M;
 
-// #define ENSURE
+#define ENSURE
 
 #ifdef ENSURE
 void ensure_impl(bool x, int line, const char *info)
@@ -30,7 +29,6 @@ void test_type(test_type_expected foo)
 {
 }
 
-typedef uint16_t u16;
 typedef int32_t s32;
 typedef int64_t s64;
 typedef __int128_t s128;
@@ -99,12 +97,9 @@ struct event
 {
 	s32 x, y;
 	int i, j1, j2;
-	u16 key[2];
 	bool operator <(const event &b) const
 	{
-		s64 l = (s64) y * b.x, r = (s64) b.y * x;
-		return l != r ? (l < r) : (i < b.i);
-		// return (s64) y * b.x < (s64) b.y * x;
+		return (s64) y * b.x < (s64) b.y * x;
 	}
 	bool operator ==(const event &b) const
 	{
@@ -118,39 +113,12 @@ struct event
 
 int sort_events_dup(event *es, int n)
 {
-	static event aux[MAX_EV];
-	static int b[1 << 16];
 	g(i, 0, n)
 	{
 		ensure(es[i].x || es[i].y);
 		if(es[i].y < 0 || (es[i].y == 0 && es[i].x < 0)) es[i].flip();
-		float k = (long double) es[i].y / es[i].x;
-		memcpy(es[i].key, &k, sizeof(es[i].key));
-		if(es[i].key[1] & 0x8000)
-		{
-			es[i].key[0] = ~es[i].key[0];
-			es[i].key[1] = ~es[i].key[1] | (u16) 0x8000;
-		}
 	}
-	memset(b, 0, sizeof(b));
-	g(i, 0, n) ++b[es[i].key[0]];
-	g(i, 1, 1 << 16) b[i] += b[i - 1];
-	h(i, n - 1, 0) aux[--b[es[i].key[0]]] = es[i];
-	
-	memset(b, 0, sizeof(b));
-	g(i, 0, n) ++b[aux[i].key[1]];
-	g(i, 1, 1 << 16) b[i] += b[i - 1];
-	h(i, n - 1, 0) es[--b[aux[i].key[1]]] = aux[i];
-	
-	int cnt = 0;
-	g(i, 1, n) if(es[i] < es[i - 1])
-	{
-		swap(es[i], es[i - 1]);
-		i -= 2;
-		++cnt;
-	}
-	fprintf(stderr, "cnt %d\n", cnt);
-	
+	stable_sort(es, es + n);
 	memcpy(es + n, es, n * sizeof(event));
 	n *= 2;
 	// g(i, 1, n) ensure(es[i - 1] < es[i] || es[i - 1] == -es[i]);
@@ -320,7 +288,7 @@ int main()
 	
 	g(i, 0, in.n) point_sets[i].init(in, i);
 	
-	static event es[MAX_EV];
+	static event es[MAX_N * MAX_M * MAX_M];
 	int en = 0;
 	g(i, 0, in.n) en = point_sets[i].make_events(es, en);
 	en = sort_events_dup(es, en);

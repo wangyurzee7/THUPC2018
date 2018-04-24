@@ -4,11 +4,12 @@ using namespace std;
 #define g(x, y, z) for(int x = (y); x < (z); ++x)
 #define h(x, y, z) for(int x = (y); x >= (z); --x)
 
-const int MAX_N = 57;
-const int MAX_M = 1007;
-const int MAX_Q = 100007;
+const int MAX_N = 6;
+const int MAX_M = 667;
+const int MAX_Q = 667;
+const int MAX_EV = MAX_N * MAX_M * MAX_M / 2;
 
-#define ENSURE
+// #define ENSURE
 
 #ifdef ENSURE
 void ensure_impl(bool x, int line, const char *info)
@@ -29,6 +30,7 @@ void test_type(test_type_expected foo)
 {
 }
 
+typedef uint16_t u16;
 typedef int32_t s32;
 typedef int64_t s64;
 typedef __int128_t s128;
@@ -97,9 +99,12 @@ struct event
 {
 	s32 x, y;
 	int i, j1, j2;
+	u16 key[2];
 	bool operator <(const event &b) const
 	{
-		return (s64) y * b.x < (s64) b.y * x;
+		s64 l = (s64) y * b.x, r = (s64) b.y * x;
+		return l != r ? (l < r) : (i < b.i);
+		// return (s64) y * b.x < (s64) b.y * x;
 	}
 	bool operator ==(const event &b) const
 	{
@@ -111,18 +116,40 @@ struct event
 	}
 };
 
-int sort_events_dup(event *es, int n)
+void sort_events(event *es, int n)
 {
+	static event aux[MAX_EV];
+	static int b[1 << 16];
 	g(i, 0, n)
 	{
 		ensure(es[i].x || es[i].y);
 		if(es[i].y < 0 || (es[i].y == 0 && es[i].x < 0)) es[i].flip();
+		float k = (long double) es[i].y / es[i].x;
+		memcpy(es[i].key, &k, sizeof(es[i].key));
+		if(es[i].key[1] & 0x8000)
+		{
+			es[i].key[0] = ~es[i].key[0];
+			es[i].key[1] = ~es[i].key[1] | (u16) 0x8000;
+		}
 	}
-	stable_sort(es, es + n);
-	memcpy(es + n, es, n * sizeof(event));
-	n *= 2;
-	// g(i, 1, n) ensure(es[i - 1] < es[i] || es[i - 1] == -es[i]);
-	return n;
+	memset(b, 0, sizeof(b));
+	g(i, 0, n) ++b[es[i].key[0]];
+	g(i, 1, 1 << 16) b[i] += b[i - 1];
+	h(i, n - 1, 0) aux[--b[es[i].key[0]]] = es[i];
+	
+	memset(b, 0, sizeof(b));
+	g(i, 0, n) ++b[aux[i].key[1]];
+	g(i, 1, 1 << 16) b[i] += b[i - 1];
+	h(i, n - 1, 0) es[--b[aux[i].key[1]]] = aux[i];
+	
+	int cnt = 0;
+	g(i, 1, n) if(es[i] < es[i - 1])
+	{
+		swap(es[i], es[i - 1]);
+		i -= 2;
+		++cnt;
+	}
+	fprintf(stderr, "cnt %d\n", cnt);
 }
 
 struct input
@@ -255,7 +282,9 @@ struct point_set
 		int expected = 0;
 		g(k, 0, qn)
 		{
-			int c = que[k], l = c, r = c;
+			int c = que[k];
+			if(!tml[c] && !tmr[c]) continue;
+			int l = c, r = c;
 			while(tml[l] == ctm)
 			{
 				tml[l--] = 0; tmr[l] = 0;
@@ -288,10 +317,10 @@ int main()
 	
 	g(i, 0, in.n) point_sets[i].init(in, i);
 	
-	static event es[MAX_N * MAX_M * MAX_M];
+	static event es[MAX_EV];
 	int en = 0;
 	g(i, 0, in.n) en = point_sets[i].make_events(es, en);
-	en = sort_events_dup(es, en);
+	sort_events(es, en);
 	es[en].i = -1;
 	
 	g(k, 0, in.q) queries[k].init(in, k);
@@ -299,7 +328,7 @@ int main()
 	g(i, 0, in.n) point_sets[i].start_events();
 	g(k, 0, in.q) queries[k].start_events();
 	
-	for(int i = 0, j; i != en; i = j)
+	g(_, 0, 2) for(int i = 0, j; i != en; i = j)
 	{
 		for(j = i; es[j] == es[i] && es[j].i == es[i].i; ++j);
 		point_sets[es[i].i].recv_events(es + i, es + j);
