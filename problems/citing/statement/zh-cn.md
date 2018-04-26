@@ -2,7 +2,7 @@
 
 ## {{ _('Description') }}
 
-Lavender、Carnation、Jasmine、Peony现在在玩一款名叫“赛艇”的游戏。
+Lavender、Caryophyllus、Jasmine、Dianthus现在在玩一款名叫“赛艇”的游戏。
 
 这个游戏的规则是这样的：
 
