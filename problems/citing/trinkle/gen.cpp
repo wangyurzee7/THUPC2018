@@ -10,7 +10,7 @@ int main(int argc,char**argv)
     printf("%d %d %d\n",n,m,k);
     for(int i=1;i<=n;++i)
         for(int j=1;j<=m;++j)
-            a[i][j]=rand()%100<rate;
+            a[i][j]=rand()%10000<rate;
     for(int i=1;i<=n;++i,puts(""))
         for(int j=1;j<=m;++j)
             printf("%d",a[i][j]);
