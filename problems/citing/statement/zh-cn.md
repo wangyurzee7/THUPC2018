@@ -18,21 +18,17 @@ Lavender、Caryophyllus、Jasmine、Dianthus现在在玩一款名叫“赛艇”
 
 {{ self.input_file() }}
 
-上面会根据具体的评测环境说明输入是文件还是标准输入等。
+输入第一行包含三个正整数 $n$，$m$，$k$，分别表示地图为 $n$ 行 $m$ 列，当前游戏已经进行了 $k$ 轮。保证 $3\le n,m \le 500$，$1\le k\le 5\times 10^5$。
 
-输入第一行包含一个正整数 $n$，保证 $n \le {{ tools.hn(prob.args['n']) }}$。←这是引用 `conf.json` 中的 `args` 的 `n` 项，然后用“好看”的格式输出。“好看”的格式如 `10^9`，`1,000,000,007`。
+输入第二行到第 $n+1$ 行为一个 $n$ 行 $m$ 列的 01 矩阵，无任何分隔符号，表示地图的具体信息，具体含义如上所示。
 
-`prob.args['n']` 还可以写成 `prob['args']['n']`。引用 `args` 项、 `data` 项、`samples` 项和 `pre` 项现在可以简写成例如 `args['n']` 或 `args.n`。表格中也一样。
-
-`tools` 可以简写成 `tl`，除 `hn` 外，还包括内建函数如 `tl.int`，`math` 中的对象或函数如 `tl.sin`，`datetime` 中的对象或函数如 `tl.time` 类，`num2chinese` 函数（可以把数字转化成中文）。
+输入的最后一行为一个长度为 $k$ 的字符串 $s$，仅由字母 `w`、`a`、`s`、`d` 构成，从前往后第 $i$ 个字符 $s_i$ 表示对方在第 $i$ 轮中，对方赛艇向上/左/下/右移动一个单位距离。
 
 ## {{ _('Output Format') }}
 
 {{ self.output_file() }}
 
-输出一个字符串 `Yes`。注意不要写成 `“Yes”（不包含引号）`。
-
-下面是自动读入样例 `1.in/ans`（存储在 `down` 文件夹内） 然后渲染到题面中；如果只有一组样例，则去掉前两行，样例仍然保存成 `1.in/ans`。其中 `1` 可以是字符串。
+输出一行一个整数，表示在第 $k$ 轮游戏回合的时候，对方赛艇可能的位置的种数。输入数据保证有合法解。
 
 {% set vars = {} -%}
 {%- do vars.__setitem__('sample_id', 1) -%}
@@ -40,27 +36,8 @@ Lavender、Caryophyllus、Jasmine、Dianthus现在在玩一款名叫“赛艇”
 
 {{ self.title_sample_description() }}
 
-这是第一组数据的样例说明。
+{{ img('path.png', size = 0.5, align = 'middle', inline = False) }}
 
-下面是只提示存在第二组样例，但不渲染到题面中。
+上图显示了路径序列可视化之后的结果，下图用蓝色标出了此时对方赛艇可能的位置。
 
-{% do vars.__setitem__('sample_id', 2) -%}
-{{ self.sample_file() }}
-
-## {{ _('Subtasks') }}
-
-不要使用markdown原生的表格，使用下列方式渲染一个表格，其中表格存放在试题目录的 `tables` 子目录下。
-
-{{ tbl('data') }}
-
-{{ tbl('table', width = [1, 6]) }}
-
-表格的例子见 `oi_tools/sample/tables`。原理上用一个二维的 json 表格存储，`null` 表示和上一行合并，不支持横向合并。建议用 python 的格式写，如例子中的 `data.pyinc`，这样可以根据数据生成；跟数据无关的表格则可以像 `table.json` 那样存储。
-
-## {{ _('Scoring') }}
-
-这是评分方法，如果有必要的话。
-
-## {{ _('Hint') }}
-
-这里是一个非常温馨的提示。
+{{ img('location.png', size = 0.3, align = 'middle', inline = False) }}
