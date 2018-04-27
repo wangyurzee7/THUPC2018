@@ -18,4 +18,8 @@ users:
     bf.cpp:
       expected: []
       path: trinkle/bf.cpp
+    bf2.cpp:
+      expected: []
+      path: trinkle/bf2.cpp
+    std.cpp: {expected: == 100, path: trinkle/std.cpp}
 version: 2

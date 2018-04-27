@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-int a[600][600],b[40];
+int a[3000][3000],b[40];
 int main(int argc,char**argv)
 {
     srand((unsigned long long)new char);
@@ -10,7 +10,8 @@ int main(int argc,char**argv)
     printf("%d %d %d\n",n,m,k);
     for(int i=1;i<=n;++i)
         for(int j=1;j<=m;++j)
-            a[i][j]=rand()%10000<rate;
+            a[i][j]=(i%2<1)&&(j%2<1);
+            // a[i][j]=rand()%10000<rate;
     for(int i=1;i<=n;++i,puts(""))
         for(int j=1;j<=m;++j)
             printf("%d",a[i][j]);
@@ -20,15 +21,16 @@ int main(int argc,char**argv)
         x=rand()%n+1;
         y=rand()%m+1;
         if(a[x][y]==0&&!(a[x-1][y]&&a[x][y-1]&&a[x+1][y]&&a[x][y+1]))
+            if(x<rate&&y<rate)
             break;
     }
     int minx=x,maxx=x,miny=y,maxy=y;
     for(int dir;k--;)
     {
         b[0]=a[x-1][y]==0;
-        b[1]=a[x+1][y]==0;
+        b[1]=a[x+1][y]==0&&x<rate;
         b[2]=a[x][y-1]==0;
-        b[3]=a[x][y+1]==0;
+        b[3]=a[x][y+1]==0&&y<rate;
         //cnt=b[0]+b[1]+b[2]+b[3];
         while(1)
         {
