@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-char a[520][520],s[500010],b[520][520];
+char a[2222][2222],s[5000010],b[2222][2222];
 int n,m,sx,sy,K;
 void process(){
     gets(s);

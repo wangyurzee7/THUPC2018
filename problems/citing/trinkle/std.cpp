@@ -1,9 +1,14 @@
 #include <bits/stdc++.h>
-#define N 520
-char a[N][N],s[500010],b[N][N];
-int n,m,sx,sy,range[N][2],lista[N][N],suma[N][N],listb[N][N],cntb[N];
+#define N 1555
+char a[N][N],s[5000010],b[N][N];
+int n,m,K,sx,sy,range[N][2];
+long long blocka[N][50],blockb[N][50];
+#define xorr(a,i,j) (a[i][(j)>>6]^=1ll<<((j)&63))
+//assert l/64==r/64
+#define sel(a,i,l,r) ((a[i][(l)>>6]>>((l)&63))&((1ll<<((r)-(l)+1))-1))
 void process(){
     gets(s);
+    assert(K==strlen(s));
     int x=0,y=0,minx=0,miny=0,maxx=0,maxy=0;
     for(int i=0;s[i];++i)
     {
@@ -32,71 +37,53 @@ void process(){
         for(int j=0;j<sy;++j)
             if(b[i][j])
             {
+                xorr(blockb,i,j);
                 if(j<range[i][0])range[i][0]=j;
                 range[i][1]=j;
             }
     }
-    for(int i=0;i<sx;++i)
-        for(int j=0;j<sy;++j)
-            if(b[i][j])
-            {
-                // printf("work %d %d\n",i,j);
-                for(int k=j-1;k>=0&&listb[i][k]==0;--k)
-                    listb[i][k]=j;
-            }
     return;
     for(int i=0;i<sx;++i,puts(""))
         for(int j=0;j<sy;++j)
             printf("%d",b[i][j]);
 }
+template<class T>void print(T a)
+{
+    for(int i=1;i<=n;++i,puts(""))
+        for(int j=0;j<=m+1;++j)
+            printf("%d ",a[i][j]);
+        puts("");
+}
 bool check(int px,int py)
 {
-    // printf("check %d %d\n",px,py);
     for(int i=0;i<sx;++i)
     {
-        int k,j=range[i][0];
-        if(b[i][j]&&a[px+i][py+j])
-            return 0;
-        if(suma[i+px][py+range[i][1]]-suma[i+px][py+range[i][0]-1]<=cntb[i])
-            for(;j<=range[i][1];)
+        int k=py,ifs=64-(py&63),fc=((k>>6)+1)<<6;
+        for(int j=0;j<=range[i][1]/64;++j,k+=64,fc+=64)
+            if(blockb[i][j])
             {
-                k=lista[px+i][py+j];
-                j=k-py;
-                if(k==0||j>range[i][1])break;
-                if(b[i][j])return 0;
-                    // return!printf("err %d %d\n",px+i,py+j);
-            }
-        else
-            for(;j<=range[i][1];)
-            {
-                j=listb[i][j];
-                if(j==0||j>range[i][1])break;
-                if(a[i+px][j+py])return 0;
+                long long tmp=k&63?(sel(blocka,i+px,k,fc-1)|(sel(blocka,i+px,fc,k+63)<<ifs)):blocka[i+px][k>>6];
+                if(tmp&blockb[i][j])return 0;
             }
     }
     return 1;
 }
 int main(){
-    scanf("%d%d%*d\n",&n,&m);
+    scanf("%d%d%d\n",&n,&m,&K);
     for(int i=1;i<=n;++i)
     {
-        a[i][0]=1;lista[i][0]=1;
+        a[i][0]=1;
+        xorr(blocka,i,0);
         gets(a[i]+1);
         for(int j=1;a[i][j];++j)
         {
             a[i][j]-='0';
-            suma[i][j]=suma[i][j-1]+a[i][j];
             if(a[i][j])
-            {
-                // printf("work %d %d\n",i,j);
-                for(int k=j-1;k>0&&lista[i][k]==0;--k)
-                    lista[i][k]=j;
-            }
+                xorr(blocka,i,j);
         }
+        xorr(blocka,i,m+1);
+        a[i][m+1]=1;
     }
-    // for(int i=1;i<=n;++i,puts(""))
-    //     for(int j=1;j<=m;++j)
-    //         printf("%d ",lista[i][j]);
     process();
     int ans=0;
     for(int i=1;i<=n-sx+1;++i)

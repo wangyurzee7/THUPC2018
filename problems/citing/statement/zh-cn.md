@@ -18,7 +18,7 @@ Lavender、Caryophyllus、Jasmine、Dianthus现在在玩一款名叫“赛艇”
 
 {{ self.input_file() }}
 
-输入第一行包含三个正整数 $n$，$m$，$k$，分别表示地图为 $n$ 行 $m$ 列，当前游戏已经进行了 $k$ 轮。保证 $3\le n,m \le 500$，$1\le k\le 5\times 10^5$。
+输入第一行包含三个正整数 $n$，$m$，$k$，分别表示地图为 $n$ 行 $m$ 列，当前游戏已经进行了 $k$ 轮。保证 $2\le n,m \le 1500$，$1\le k\le 5\times 10^6$。
 
 输入第二行到第 $n+1$ 行为一个 $n$ 行 $m$ 列的 01 矩阵，无任何分隔符号，表示地图的具体信息，具体含义如上所示。
 
@@ -28,7 +28,7 @@ Lavender、Caryophyllus、Jasmine、Dianthus现在在玩一款名叫“赛艇”
 
 {{ self.output_file() }}
 
-输出一行一个整数，表示在第 $k$ 轮游戏回合的时候，对方赛艇可能的位置的种数。输入数据保证有合法解。
+输出一行一个正整数，表示在第 $k$ 轮游戏回合的时候，对方赛艇可能的位置的种数。对于所有输入数据，**保证有合法解**。
 
 {% set vars = {} -%}
 {%- do vars.__setitem__('sample_id', 1) -%}
@@ -41,3 +41,4 @@ Lavender、Caryophyllus、Jasmine、Dianthus现在在玩一款名叫“赛艇”
 上图显示了路径序列可视化之后的结果，下图用蓝色标出了此时对方赛艇可能的位置。
 
 {{ img('location.png', size = 0.3, align = 'middle', inline = False) }}
+

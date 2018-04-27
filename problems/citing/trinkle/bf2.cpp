@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
-char a[520][520],s[500010],b[520][520];
-int n,m,sx,sy,range[520][2],list[520][520],cnt[520];
+char a[2222][2222],s[5000010],b[2222][2222];
+int n,m,sx,sy,range[2222][2],list[2222][2222],cnt[2222];
 void process(){
     gets(s);
     int x=0,y=0,minx=0,miny=0,maxx=0,maxy=0;

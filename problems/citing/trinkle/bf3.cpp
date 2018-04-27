@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
-#define N 520
-char a[N][N],s[500010],b[N][N];
+#define N 2222
+char a[N][N],s[5000010],b[N][N];
 int n,m,sx,sy,range[N][2],lista[N][N],suma[N][N],listb[N][N],cntb[N];
 void process(){
     gets(s);

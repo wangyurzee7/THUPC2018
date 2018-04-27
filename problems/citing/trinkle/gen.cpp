@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-int a[3000][3000],b[40];
+int a[2222][2222],b[40];
 int main(int argc,char**argv)
 {
     srand((unsigned long long)new char);
@@ -7,14 +7,19 @@ int main(int argc,char**argv)
     for(int i=0;i<=n+1;++i)
         for(int j=0;j<=m+1;++j)
             a[i][j]=1;
+    int len=rate;k=len*3;
     printf("%d %d %d\n",n,m,k);
     for(int i=1;i<=n;++i)
         for(int j=1;j<=m;++j)
             a[i][j]=(i%2<1)&&(j%2<1);
-            // a[i][j]=rand()%10000<rate;
+            // a[i][j]=rand()%100000<rate;
     for(int i=1;i<=n;++i,puts(""))
         for(int j=1;j<=m;++j)
             printf("%d",a[i][j]);
+    for(int i=0;i<len;++i)putchar('s');
+    for(int i=0;i<len;++i)putchar('d');
+    for(int i=0;i<len;++i)putchar('w');
+        return!puts("");
     int x,y;
     while(1)
     {
