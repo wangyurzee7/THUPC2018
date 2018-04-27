@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
 char a[520][520],s[500010],b[520][520];
-int n,m,sx,sy;
+int n,m,sx,sy,K;
 void process(){
     gets(s);
+    assert(strlen(s)==K);
     int x=0,y=0,minx=0,miny=0,maxx=0,maxy=0;
     for(int i=0;s[i];++i)
     {
@@ -41,7 +42,7 @@ bool check(int px,int py)
     return 1;
 }
 int main(){
-    scanf("%d%d%*d\n",&n,&m);
+    scanf("%d%d%d\n",&n,&m,&K);
     for(int i=1;i<=n;++i)
     {
         gets(a[i]+1);
