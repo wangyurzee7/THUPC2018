@@ -4,9 +4,9 @@ C citing
 D dsa
 E tommy
 F rsa
-G geometry(HHT)
+G wall
 H problem
-I tree(HHT)
+I city
 J toyshop
 K cake
 L lives
