@@ -7,8 +7,12 @@ name: tommy
 partial score: false
 pre: []
 samples: []
-time limit: 1.0
+time limit: 4.0
 title: {zh-cn: 淘米神的树}
 type: program
-users: {}
+users:
+  immortalCO:
+    tmp:
+      path: immortalCO/tmp.cpp
+      expected: {">=": 100}
 version: 2
