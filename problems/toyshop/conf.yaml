@@ -8,7 +8,7 @@ packed: false
 partial score: false
 pre: []
 samples: []
-time limit: 1.0
+time limit: 2.0
 title: {zh-cn: 弗雷兹的玩具商店}
 type: program
 users: {}
