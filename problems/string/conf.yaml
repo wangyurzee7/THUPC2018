@@ -7,7 +7,7 @@ name: string
 partial score: false
 pre: []
 samples: []
-time limit: 1.0
+time limit: 2.0
 title: {zh-cn: 绿绿与串串}
 type: program
 users: {}
