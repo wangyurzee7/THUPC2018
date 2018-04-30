@@ -24,7 +24,7 @@ def inv(a,p):
 	(g,x,y)=exgcd(a,p)
 	return (x%p+p)%p
 
-name='prime_32.txt'
+name='prime.txt'
 a=open(name).read().split('\n')[:-1]
 bigp=[]
 for i in a:
@@ -48,7 +48,7 @@ for i in range(2,top+1):
 		prime.append(i)
 # print(prime)
 ######
-T=100
+T=10000
 print(T)
 for __ in range(T):
 	p=bigp[np.random.randint(num)]
