@@ -1,6 +1,6 @@
 A string
-B goodgraph(613)
-C citing
+B citing
+C count
 D dsa
 E tommy
 F rsa
