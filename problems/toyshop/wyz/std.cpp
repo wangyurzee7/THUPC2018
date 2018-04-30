@@ -4,17 +4,21 @@
 using namespace std;
 inline int read(){
 	int ret=0;char ch=getchar();
-	while (ch<'0'||ch>'9') ch=getchar();
+	bool flag=0;
+	while (ch<'0'||ch>'9'){
+		flag=ch=='-';
+		ch=getchar();
+	}
 	while ('0'<=ch&&ch<='9'){
 		ret=ret*10-48+ch;
 		ch=getchar();
 	}
-	return ret;
+	return flag?-ret:ret;
 }
 
+//#define DEBUG
 
-const int N=30000;
-
+const int N=30004;
 const int M=64;
 
 int m;
@@ -27,7 +31,7 @@ struct SegmentTree{
 		int valueTag;
 	} t[N*4];
 	void PushUp(int x){
-		for (int i=1;i<=m;++i) t[x].mx[i]=max(t[x].mx[i<<1],t[x].mx[i<<1^1]);
+		for (int i=1;i<=m;++i) t[x].mx[i]=max(t[x<<1].mx[i],t[x<<1^1].mx[i]);
 	}
 	void addValue(int x,int dlt){
 		t[x].valueTag+=dlt;
@@ -51,8 +55,8 @@ struct SegmentTree{
 			t[x].valueTag=0;
 		}
 		if (t[x].weightTag){
-			addValue(x<<1,t[x].weightTag);
-			addValue(x<<1^1,t[x].weightTag);
+			addWeight(x<<1,t[x].weightTag);
+			addWeight(x<<1^1,t[x].weightTag);
 			t[x].weightTag=0;
 		}
 	}
@@ -63,12 +67,22 @@ struct SegmentTree{
 		if (l==r){
 			memset(t[x].mx,0,sizeof(t[x].mx));
 			t[x].mx[w[l]]=v[l];
+			#ifdef DEBUG
+			printf("%d [%d,%d]  -> ",x,l,r);
+			for (int i=1;i<=m;++i) printf("%d ",t[x].mx[i]);
+			puts("");
+			#endif
 			return;
 		}
 		int mid=(l+r)/2;
 		build(x<<1,l,mid,w,v);
 		build(x<<1^1,mid+1,r,w,v);
 		PushUp(x);
+		#ifdef DEBUG
+		printf("%d [%d,%d]  -> ",x,l,r);
+		for (int i=1;i<=m;++i) printf("%d ",t[x].mx[i]);
+		puts("");
+		#endif
 	}
 	void modifyValue(int x,int l,int r,int dlt){
 		PushDown(x);
@@ -118,6 +132,10 @@ int main(){
 		else if (op==3){
 			memset(value,0,sizeof(value));
 			st.query(1,l,r,value);
+			#ifdef DEBUG
+			for (int i=1;i<=m;++i) printf("%d ",value[i]);
+			puts("");
+			#endif
 			
 			memset(dp,0,sizeof(dp));
 			for (int i=1;i<=m;++i)
@@ -125,7 +143,7 @@ int main(){
 					dp[j]=max(dp[j],dp[j-i]+value[i]);
 			
 			ll ans0=0;
-			int ans1=1;
+			int ans1=0;
 			for (int j=1;j<=m;++j){
 				ans0+=dp[j];
 				ans1^=dp[j];
