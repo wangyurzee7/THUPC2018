@@ -18,10 +18,12 @@ inline int read(){
 
 //#define DEBUG
 
-const int N=30004;
+const int N=200005;
 const int M=64;
 
 int m;
+
+const int inf=2e9;
 
 struct SegmentTree{
 	struct STnode{
@@ -34,8 +36,13 @@ struct SegmentTree{
 		for (int i=1;i<=m;++i) t[x].mx[i]=max(t[x<<1].mx[i],t[x<<1^1].mx[i]);
 	}
 	void addValue(int x,int dlt){
+		#ifdef DEBUG
+		printf("	[addValue %d] dlt=%d\n",x,dlt);
+		#endif
 		t[x].valueTag+=dlt;
-		for (int i=1;i<=m;++i) t[x].mx[i]+=t[x].valueTag;
+		for (int i=1;i<=m;++i)
+			if (t[x].mx[i]>-inf)
+				t[x].mx[i]+=dlt;
 	}
 	void addWeight(int x,int b){
 		t[x].weightTag+=b;
@@ -50,6 +57,9 @@ struct SegmentTree{
 	void PushDown(int x){
 		if (t[x].l==t[x].r) return;
 		if (t[x].valueTag){
+			#ifdef DEBUG
+			printf("[PushDown %d] valueTag=%d\n",x,t[x].valueTag);
+			#endif
 			addValue(x<<1,t[x].valueTag);
 			addValue(x<<1^1,t[x].valueTag);
 			t[x].valueTag=0;
@@ -65,7 +75,7 @@ struct SegmentTree{
 		t[x].weightTag=0;
 		t[x].valueTag=0;
 		if (l==r){
-			memset(t[x].mx,0,sizeof(t[x].mx));
+			memset(t[x].mx,128,sizeof(t[x].mx));
 			t[x].mx[w[l]]=v[l];
 			#ifdef DEBUG
 			printf("%d [%d,%d]  -> ",x,l,r);
@@ -125,6 +135,7 @@ int main(){
 	for (int i=1;i<=n;++i) w[i]=read();
 	for (int i=1;i<=n;++i) v[i]=read();
 	st.build(1,1,n,w,v);
+	// return 0;
 	for (int Q=read();Q;Q--){
 		int op=read(),l=read(),r=read();
 		if (op==1) st.modifyWeight(1,l,r,read());

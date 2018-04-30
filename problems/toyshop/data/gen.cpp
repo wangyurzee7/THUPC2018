@@ -8,11 +8,23 @@
 
 using namespace std;
 
-const int maxn=30000;
+#ifndef SMALL
+const int maxn=200000;
 const int maxQ=30000;
 const int maxm=60;
 const int maxv=1e7;
 const int maxb=1e3;
+#endif
+
+
+#ifdef SMALL
+const int maxn=10;
+const int maxQ=10;
+const int maxm=7;
+const int maxv=100;
+const int maxb=10;
+#endif
+
 
 void unqPick(int *a,int l,int r){
 	for (int i=l;i<=r;++i) a[i-l]=i;
@@ -26,7 +38,7 @@ ll Rand(ll mod){return (unsigned long long)rand()*rand()*rand()*rand()%mod;}
 const int base=2;
 int Rand_log(int ub){return pow(base,1.0*rand()/RAND_MAX*(log(ub)/log(base)));}
 
-const int N=30004;
+const int N=200005;
 
 int n,m,Q;
 int v[N],w[N];
@@ -40,7 +52,8 @@ void gen(int index){
 		if ((index>>2)==0) p_mdf=1;
 		if ((index>>2)==1) p_mdf=99;
 	}
-	else p_mdf=0,type=1;
+	else if (index==12) p_mdf=0,type=1;
+	else p_mdf=60,type=2;
 	n=maxn;
 	Q=maxQ;
 	m=maxm;
@@ -62,6 +75,7 @@ void gen(int index){
 	for (int i=1;i<=Q;++i){
 		int op,l,r,len,tmp;
 		if (type==1) len=rand()%n+1;
+		else if (type==2) len=n-rand()%(n/10);
 		else len=Rand_log(n);
 		if (percent(p_mdf)){
 			if (percent(p_op1)) op=1;
@@ -69,9 +83,9 @@ void gen(int index){
 		}
 		else op=3;
 		l=rand()%(n-len+1)+1;
-		r=l+len;
+		r=l+len-1;
 		if (op==1) tmp=rand()%m+1;
-		if (op==2) tmp=rand()%(2*maxv+1)-maxv;
+		if (op==2) tmp=rand()%(2*maxb+1)-maxb;
 		printf("%d %d %d",op,l,r);
 		if (op!=3) printf(" %d",tmp);
 		puts("");
@@ -84,7 +98,7 @@ int main(int argc,char **argv){
 	printf("%u\n",seed);
 	fclose(stdout);
 	const int start=2;
-	const int cas=13;
+	const int cas=14;
 	for (int t=0;t<cas;++t){
 		char fname[23];
 		int index=t+start;

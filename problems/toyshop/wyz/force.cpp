@@ -9,7 +9,7 @@ inline int read(){
 }
 
 
-const int N=30004;
+const int N=200005;
 const int M=64;
 
 int m;
