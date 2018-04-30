@@ -28,3 +28,6 @@ arbiter*
 *.tmp
 **.class
 **.pyc
+std
+testlib.h
+validate
