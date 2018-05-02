@@ -1,14 +1,24 @@
-args: {n: 1000}
-compile: {c: -O2 -std=c14, cpp: -O2 -std=c++14, java: '', pas: -O2, py: ''}
-data: []
+args: {}
+compile: {c: -O2 -std=c11, cpp: -O2 -std=c++11, java: '', pas: -O2, py: ''}
+data:
+- cases: [1]
+  score: 100
 folder: problem
 memory limit: 512 MB
 name: wall
 partial score: false
 pre: []
 samples: []
-time limit: 1.0
+time limit: 100.0
 title: {zh-cn: 琪亚娜之墙}
 type: program
-users: {}
+users:
+  FoolMike:
+    std:
+      expected: {'>=': 100}
+      path: FoolMike/std.cpp
+  HaHaTa:
+    std:
+      expected: {'>=': 0}
+      path: HaHaTa/pupil.cpp
 version: 2
