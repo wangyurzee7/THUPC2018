@@ -32,6 +32,7 @@ int main()
 		p[i]=(q[i]+r[i])%mo;
 		for (int j=i+i;j<=6666;j+=i) q[j]=(q[j]+(long long)i*a[i])%mo;
 	}
+	for (int i=2;i<=6666;i++) a[i]=a[i]*2%mo;
 	while (t--)
 	{
 		int n;scanf("%d",&n);
