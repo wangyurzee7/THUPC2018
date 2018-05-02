@@ -62,7 +62,7 @@ inline bool isPrime(ll x){return miller_rabin(x);}
 };
 
 int a[2333];
-const int maxn=6666;
+const int maxn=23333;
 
 void gen(){
 	int t=233-rand()%2*rand()%6;

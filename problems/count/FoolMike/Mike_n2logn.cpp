@@ -2,14 +2,14 @@
 using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
-const int N=10010;
+const int N=25010;
 int T,n,p,g[N],h[N],inv[N];
 int inc(int x,int y){x+=y;return x>=p?x-p:x;}
 int mul(int x,int y){return (ll)x*y%p;}
 int main()
 {
 	scanf("%d%d",&T,&p);
-	n=6666;
+	n=23333;
 	inv[1]=1;
 	for (int i=2;i<=n;i++) inv[i]=mul(p-p/i,inv[p%i]);
 	for (int i=0;i<=n;i++) g[i]=1;
