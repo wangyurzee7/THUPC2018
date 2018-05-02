@@ -90,7 +90,6 @@ struct LCT{
 		makeroot(y);
 		access(x);
 		splay(x);
-		vv[x]-=vs[y];
 		fa[y]=lc(x)=0;
 		up(x);
 	}
@@ -116,7 +115,7 @@ void read(){
 		int k;
 		scanf("%d%d",&k,&tp[I]);
 		for (int i=1;i<=k;i++) scanf("%lf%lf",&pt[i].x,&pt[i].y);
-		for (int i=3;i<=k;i++) val[I]+=(pt[2]-pt[1])*(pt[i]-pt[i-1])*0.5;
+		for (int i=3;i<=k;i++) val[I]+=(pt[i-1]-pt[1])*(pt[i]-pt[1])*0.5;
 		int l=1,r=1;
 		for (int i=1;i<=k;i++){
 			if (pt[i].x<pt[l].x) l=i;
@@ -128,12 +127,12 @@ void read(){
 		for (int i=l;i!=r;i=nxt[i]){
 			calcseg(pt[i],pt[nxt[i]],K,B);
 			A.push_back((scan){I,true,pt[i].x,K,B-eps});
-			A.push_back((scan){I,false,pt[nxt[i]].x,K,B-eps});
+			A.push_back((scan){I,false,pt[nxt[i]].x-eps,K,B-eps});
 		}
 		for (int i=l;i!=r;i=pre[i]){
 			calcseg(pt[i],pt[pre[i]],K,B);
 			A.push_back((scan){I,true,pt[i].x,K,B+eps});
-			A.push_back((scan){I,false,pt[pre[i]].x,K,B+eps});
+			A.push_back((scan){I,false,pt[pre[i]].x-eps,K,B+eps});
 		}
 	}
 	for (int i=1;i<=m;i++){
@@ -156,6 +155,7 @@ struct segment{
 	bool operator == (const segment &a)const{return id==a.id&&k==a.k&&b==a.b;}
 }curseg[N][2];
 bool inrange(int id,double cury){
+	if (curseg[id][0].id!=id||curseg[id][1].id!=id) return 0;
 	double l=curseg[id][0].cury(),r=curseg[id][1].cury();
 	if (l>r) swap(l,r);
 	return l<cury&&cury<r;
@@ -206,7 +206,7 @@ void work(){
 	for (int i=1;i<=m;i++)
 	if (op[i]==1){
 		int v=qv[i];
-		if (tp[v]==1)
+		if (tp[v]==2)
 			T1.link(v,fa[v]),T2.cut(v,fa[v]);
 		else
 			T1.cut(v,fa[v]),T2.link(v,fa[v]);
