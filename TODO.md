@@ -40,6 +40,8 @@
 
 * 验题人：zhonghaoxi
 
+* 验题：√
+
 ## toyshop
 
 * 命题人：wdz
@@ -55,6 +57,8 @@
 * 题面：√
 
 * 验题人：zhonghaoxi
+
+* 验题：√
 
 ## city
 
