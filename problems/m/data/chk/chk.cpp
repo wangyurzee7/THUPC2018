@@ -29,6 +29,7 @@ bool found(char s[], const char p[]) {
             }
         }
         if (ok) return true;
+		return false;
     }
     return false;
 }
