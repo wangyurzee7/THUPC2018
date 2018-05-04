@@ -2,6 +2,6 @@ end time: 2018-05-12 17:00:00+0800
 folder: day
 name: day0
 start time: 2018-05-12 15:00:00+0800
-subdir: [choice, mentor]
+subdir: [choice, mentor, turing]
 title: {zh-cn: 练习赛}
 version: 2
