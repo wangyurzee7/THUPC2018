@@ -1,15 +1,32 @@
 args: {n: 1000}
 compile: {c: -O2 -std=c11, cpp: -O2 -std=c++11, java: '', pas: -O2, py: ''}
-data: []
+data:
+- cases: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 folder: problem
 memory limit: 512 MB
 name: toyshop
 packed: false
 partial score: false
 pre: []
-samples: []
+samples:
+- cases: [1]
 time limit: 2.0
 title: {zh-cn: 弗雷兹的玩具商店}
 type: program
-users: {}
+users:
+  trinkle:
+    bf.cpp:
+      expected: []
+      path: trinkle/bf.cpp
+    bf2.cpp:
+      expected: []
+      path: trinkle/bf2.cpp
+    bf3.cpp:
+      expected: []
+      path: trinkle/bf3.cpp
+  wyz:
+    force.cpp:
+      expected: []
+      path: wyz/force.cpp
+    std.cpp: {expected: == 100, path: wyz/std.cpp}
 version: 0
