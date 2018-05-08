@@ -50,7 +50,7 @@
 
 下面是 $3$ 个点的所有好的图：
 
-{{ img('1.png', size = 1.0, align = 'middle', inline = False) }}
+{{ img('1.png', size = 0.9, align = 'middle', inline = False) }}
 
 ## 数据规模
 
