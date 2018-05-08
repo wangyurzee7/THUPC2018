@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
 
     fullScore_file >> fullScore;
     char ans[1000];
-    fgets(ans, 1000, output);
+	fscanf(output,"%s",ans);
 
     for (int i = 0; ans[i]; i++) {
         if (ans[i] >= 'A' && ans[i] <= 'Z') {
