@@ -19,7 +19,8 @@ void AC() {
 	exit(0);
 }
 
-bool found(char s[], const char p[]) {
+bool found(char *s, const char *p) {
+	if (strlen(s)!=strlen(p)) return false;
     for (int i = 0; s[i]; i++) {
         bool ok = true;
         for (int j = 0; p[j]; j++) {
