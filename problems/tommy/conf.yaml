@@ -13,6 +13,6 @@ type: program
 users:
   immortalCO:
     tmp:
+      expected: {'>=': 100}
       path: immortalCO/tmp.cpp
-      expected: {">=": 100}
 version: 2

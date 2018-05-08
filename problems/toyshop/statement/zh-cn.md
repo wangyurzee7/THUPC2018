@@ -84,9 +84,9 @@
 
 保证 $1\le n\leq 200,000$，$1\le m\leq 60$，$0\le Q\leq 30,000$。
 
-保证 $1\leq c_i,d\leq m​$。
+保证 $1\leq c_i,d\leq m$。
 
-保证 $1\leq v_i\leq 10^7$，$\left| b\right|\leq 10^3$。
+保证 $0\leq v_i\leq 10^7$，$\left| b\right|\leq 10^3$。
 
 ## {{ _('Hint') }}
 
