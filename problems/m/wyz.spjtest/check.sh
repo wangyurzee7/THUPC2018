@@ -21,7 +21,7 @@ do
 done <result.txt
 echo score : ${score}  \( expected: ${expected} \)
 echo info : ${info}
-if ((score == expected))
+if [ score == expected ]
 then
 	echo Correct Judgement!
 else

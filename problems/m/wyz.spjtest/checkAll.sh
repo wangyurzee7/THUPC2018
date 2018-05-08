@@ -1,3 +1,4 @@
+buffer=""
 for ((i=1;;++i))
 do
 	if [ ! -e $i.score ]
@@ -8,8 +9,9 @@ do
 	./check.sh $i
 	if (($?))
 	then
-		exit 1
+		read -s -n1 -p "Press any key to continue..."
+		buffer+=$i' '
 	fi
 	echo ''
 done
-
+echo \[Wrong Case Id\]: $buffer
