@@ -36,14 +36,14 @@ void work(){
 	h.prepare(_base,_P,st);
 	for (int i=n>>1;i;--i) swap(st[i],st[n-i+1]);
 	r.prepare(_base,_P,st);
-	for (int i=1;i<n;++i){
+	for (int i=2;i<n;++i){
 		int len=i;
 		if (i+len-1>n) len=n+1-i;
 		// printf("[debug]%d %d   %d %d\n",i,i+len-1,n-len+1,n);
 		if (h.get_hash(i,i+len-1)==r.get_hash(n-i+1,n-i+len)){
 			// printf("[[%d] %d %d     %d %d ]",i,i+len,n,2,n-i-len+2);
 			if (h.get_hash(i+len,n)==h.get_hash(2,n-i-len+2))
-				if (i>1||h.get_hash(1,n-1)==h.get_hash(2,n)) printf("%d ",i);
+				printf("%d ",i);
 		}
 	}
 	printf("%d\n",n);
