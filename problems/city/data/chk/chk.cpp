@@ -1,12 +1,13 @@
 #include<cstdio>
+#include"testlib.h"
 #define MAXN 3005
 #define MOD 59393
 using namespace std;
 int n,k,a[15];
 int std_n,std_val;
-double ans_n,ans_val,ans_u,ans_v;
+int ans_n,ans_val;
 int u,v,fa[MAXN],indgr[MAXN];
-int ans;
+int sum;
 double S;
 int find(int u)
 {
@@ -33,49 +34,47 @@ int main(int argc,char*argv[])
 	for (int i=0;i<=k;i++)
 		fscanf(fi,"%d",&a[i]);
 	fscanf(fstd,"%d%d",&std_n,&std_val);
-	fscanf(fans,"%lf%lf",&ans_n,&ans_val);
-	if ((ans_n!=(int)ans_n)||(ans_val!=(int)ans_val))
-	{
-		fprintf(fr,"0\nWrong Answer.\n");
-		return 0;
-	}
+	for (int i=1;i<n;i++)
+		fscanf(fstd,"%d%d",&u,&v);
+	registerTestlibCmd(4,argv);
+	ans_n=ouf.readInt();
+	ans_val=ouf.readInt();
 	if ((std_n!=ans_n)||(std_val!=ans_val))
 	{
 		fprintf(fr,"0\nWrong Answer.\n");
-		return 0;
+		quitf(_ok,"No Problem.");
 	}
 	for (int i=1;i<=n;i++)
 		fa[i]=i;
 	for (int i=1;i<n;i++)
 	{
-		fscanf(fans,"%lf%lf",&ans_u,&ans_v);
-		if ((ans_u!=(int)ans_u)||ans_v!=(int)ans_v)
-		{
-			fprintf(fr,"0\nWrong Answer.\n");
-			return 0;
-		}
-		u=(int)ans_u;v=(int)ans_v;
+		u=ouf.readInt();
+		v=ouf.readInt();
 		if ((u==v)||(u>n)||(v>n)||(u<1)||(v<1))
 		{
 			fprintf(fr,"0\nWrong Answer.\n");
-			return 0;
+			quitf(_ok,"No Problem.");
 		}
 		indgr[u]++;indgr[v]++;
 		if (find(u)==find(v))
 		{
 			fprintf(fr,"0\nWrong Answer.\n");
-			return 0;
+			quitf(_ok,"No Problem.");
 		}
 		fa[find(u)]=find(v);
 	}
 	for (int i=1;i<=n;i++)
-		ans+=calc(indgr[i]);
-	if (ans!=std_val)
+		sum+=calc(indgr[i]);
+	if (sum!=std_val)
 	{
 		fprintf(fr,"0\nWrong Answer.\n");
-		return 0;
+		quitf(_ok,"No Problem.");
 	}
-	fprintf(fr,"%d\nAccepted.\n",(int)S);
+	else
+	{
+		fprintf(fr,"%d\nAccepted.\n",(int)S);
+		quitf(_ok,"No Problem.");
+	}
 	return 0;
 }
 
