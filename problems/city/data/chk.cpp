@@ -30,36 +30,41 @@ int main(int argc,char*argv[])
 	fscore=fopen(argv[4],"r");
 	fr=fopen(argv[5],"w");
 	fscanf(fscore,"%lf",&S);
-	fscanf(fi,"%d%d",&n,&k);
-	for (int i=0;i<=k;i++)
-		fscanf(fi,"%d",&a[i]);
-	fscanf(fstd,"%d%d",&std_n,&std_val);
-	for (int i=1;i<n;i++)
-		fscanf(fstd,"%d%d",&u,&v);
 	registerTestlibCmd(4,argv);
+	n=inf.readInt();
+	k=inf.readInt();
+	for (int i=0;i<=k;i++)
+		a[i]=inf.readInt();
+	std_n=ans.readInt();
+	std_val=ans.readInt();
+	for (int i=1;i<=std_n;i++)
+	{
+		u=ans.readInt();
+		v=ans.readInt();
+	}
 	ans_n=ouf.readInt();
 	ans_val=ouf.readInt();
 	if ((std_n!=ans_n)||(std_val!=ans_val))
 	{
 		fprintf(fr,"0\nWrong Answer.\n");
-		quitf(_ok,"No Problem.");
+		quitf(_ok,"Wrong Answer.");
 	}
 	for (int i=1;i<=n;i++)
 		fa[i]=i;
-	for (int i=1;i<n;i++)
+	for (int i=1;i<=ans_n;i++)
 	{
 		u=ouf.readInt();
 		v=ouf.readInt();
 		if ((u==v)||(u>n)||(v>n)||(u<1)||(v<1))
 		{
 			fprintf(fr,"0\nWrong Answer.\n");
-			quitf(_ok,"No Problem.");
+			quitf(_ok,"Wrong Answer.");
 		}
 		indgr[u]++;indgr[v]++;
 		if (find(u)==find(v))
 		{
 			fprintf(fr,"0\nWrong Answer.\n");
-			quitf(_ok,"No Problem.");
+			quitf(_ok,"Wrong Answer.");
 		}
 		fa[find(u)]=find(v);
 	}
@@ -68,12 +73,12 @@ int main(int argc,char*argv[])
 	if (sum!=std_val)
 	{
 		fprintf(fr,"0\nWrong Answer.\n");
-		quitf(_ok,"No Problem.");
+		quitf(_ok,"Wrong Answer.");
 	}
 	else
 	{
 		fprintf(fr,"%d\nAccepted.\n",(int)S);
-		quitf(_ok,"No Problem.");
+		quitf(_ok,"Accepted.");
 	}
 	return 0;
 }

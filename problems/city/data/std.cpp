@@ -29,7 +29,7 @@ int main()
 	for (int T=1;T<=100;T++)
 	{
 		sprintf(in,"%d.in",T);
-		sprintf(out,"%d.ans",T);
+		sprintf(out,"%d.out",T);
 		freopen(in,"r",stdin);
 		freopen(out,"w",stdout);
 		scanf("%d%d",&n,&k);
@@ -69,6 +69,7 @@ int main()
 			if (final.second==1)id++;
 			final=pre[final.first][final.second];
 		}
+		g.clear();
 		for (int i=id;i<=n;i++)
 			g.push_back(i);
 		for (int i=1;i<=n-2;i++)
