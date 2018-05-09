@@ -23,10 +23,6 @@ int main(){
 		}
 		cost[i]%=mod;
 	}
-	if (n==2){
-		printf("1 %d\n",2*x[1]);
-		printf("1 1");
-	}
 	dp[0]=cost[1]*n;
 	for (int i=1;i<=n-2;++i){
 		dp[i]=-1;

@@ -1,1 +1,1 @@
-cp ../data/chk/chk.cpp chk.cpp
+cp ../data/chk.cpp chk.cpp
