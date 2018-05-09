@@ -68,7 +68,7 @@ int main()
 		g.pop_front();
 		if (pru[i+1]!=pru[i])g.push_front(pru[i]);
 	}
-	printf("%d %d\n",g.front(),g.back());
+	if (n>1)printf("%d %d\n",g.front(),g.back());
 	return 0;
 }
 

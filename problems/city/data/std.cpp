@@ -62,7 +62,8 @@ int main()
 				ans=dp[n-2][i];
 				final=make_pair(n-2,i);
 			}
-		printf("%d %d\n",n-1,ans);
+		if (n>1)printf("%d %d\n",n-1,ans);
+		else printf("0 %d\n",calc(0));
 		for (int i=1;i<=n-2;i++)
 		{
 			pru[n-i-1]=id;
@@ -78,7 +79,7 @@ int main()
 			g.pop_front();
 			if (pru[i+1]!=pru[i])g.push_front(pru[i]);
 		}
-		printf("%d %d\n",g.front(),g.back());
+		if (n>1)printf("%d %d\n",g.front(),g.back());
 	}
 	return 0;
 }
