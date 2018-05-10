@@ -42,7 +42,7 @@ struct Data
 		g(i, 0, n) g(j, 0, m) fprintf(fout, "%d%c", p[i][j].y, " \n"[j + 1 == m]);
 		g(_, 0, q) g(i, 0, n) fprintf(fout, "%d%c", r(m + 1), " \n"[i + 1 == n]);
 		fclose(fout);
-		system(("time ./std < " + fn + ".in > " + fn + ".out").c_str());
+		system(("time ./std < " + fn + ".in > " + fn + ".ans").c_str());
 	}
 };
 
@@ -75,8 +75,8 @@ Data randomSin(int n, int m, int q, int u)
 		{
 			double x = r(2 * xl + 1) - xl;
 			double y = r(2 * yl + 1) - yl;
-			d.p[i][j].x = x * cos_th - y * sin_th;
-			d.p[i][j].y = x * sin_th + y * cos_th;
+			d.p[i][j].x = (x * cos_th - y * sin_th) / sqrt(2);
+			d.p[i][j].y = (x * sin_th + y * cos_th) / sqrt(2);
 		}
 	}
 	return d;
@@ -112,7 +112,7 @@ Data tcp(int t, Data d)
 
 int main()
 {
-	randomSq(6, 666, 666, 1000000000).dump("down/2");
+	// randomSq(6, 666, 666, 1000000000).dump("down/2");
 	o(randomSq(6, 663, 666, 1000000000));
 	o(add0(.01, randomSq(6, 666, 662, 1000000000)));
 	o(cp(1 << 11, add0(.01, randomSq(6, 666, 662, 1000000000))));
@@ -141,4 +141,7 @@ int main()
 	o(randomSq(6, 1, 666, 0));
 	o(randomSq(1, 66, 666, 0));
 	o(randomSq(6, 666, 666, 0));
+	o(randomSq(6, 666, 666, 1));
+	o(randomSq(6, 666, 666, 10));
+	o(randomSq(6, 666, 666, 100));
 }
