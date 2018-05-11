@@ -1,4 +1,5 @@
 make validate
+buffer=''
 for ((i=1;;++i))
 do
 	if [ ! -e "../data/$i.in" ]
@@ -10,6 +11,8 @@ do
 	if (($?))
 	then
 		echo Boooooooooooooom!!!!
-		break
+		read -n1 -s -p "Press Any Key To Continue..."
+		buffer+=${i}', '
 	fi
 done
+echo [ Invalid Testcase Id ]: ${buffer}
