@@ -10,7 +10,7 @@ partial score: false
 pre: []
 samples:
 - cases: [1]
-time limit: 1.5
+time limit: 10.0
 title: {zh-cn: 组合数问题}
 type: program
 users:

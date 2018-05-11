@@ -11,21 +11,24 @@ Validating testdata "../data/9.in"...  OK!!
 Validating testdata "../data/10.in"...  OK!!
 Validating testdata "../data/11.in"...  OK!!
 Validating testdata "../data/12.in"...  OK!!
-Validating testdata "../data/13.in"...Boooooooooooooom!!!!
-Validating testdata "../data/14.in"...Boooooooooooooom!!!!
-Validating testdata "../data/15.in"...Boooooooooooooom!!!!
-Validating testdata "../data/16.in"...Boooooooooooooom!!!!
+Validating testdata "../data/13.in"...  OK!!
+Validating testdata "../data/14.in"...  OK!!
+Validating testdata "../data/15.in"...  OK!!
+Validating testdata "../data/16.in"...  OK!!
 Validating testdata "../data/17.in"...  OK!!
-Validating testdata "../data/18.in"...Boooooooooooooom!!!!
+Validating testdata "../data/18.in"...  OK!!
 Validating testdata "../data/19.in"...  OK!!
-Validating testdata "../data/20.in"...Boooooooooooooom!!!!
-Validating testdata "../data/21.in"...Boooooooooooooom!!!!
-Validating testdata "../data/22.in"...Boooooooooooooom!!!!
+Validating testdata "../data/20.in"...  OK!!
+Validating testdata "../data/21.in"...  OK!!
+Validating testdata "../data/22.in"...  OK!!
 Validating testdata "../data/23.in"...  OK!!
-Validating testdata "../data/24.in"...Boooooooooooooom!!!!
+Validating testdata "../data/24.in"...  OK!!
 Validating testdata "../data/25.in"...  OK!!
 Validating testdata "../data/26.in"...  OK!!
 Validating testdata "../data/27.in"...  OK!!
 Validating testdata "../data/28.in"...  OK!!
-Testcase#29 Nout Found.All the datas are checked!
-[ Invalid Testcase Id ]: 13, 14, 15, 16, 18, 20, 21, 22, 24,
+Validating testdata "../data/29.in"...  OK!!
+Validating testdata "../data/30.in"...  OK!!
+Validating testdata "../data/31.in"...  OK!!
+Testcase#32 Nout Found.All the datas are checked!
+[ Invalid Testcase Id ]:

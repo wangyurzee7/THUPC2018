@@ -1,14 +1,34 @@
 args: {n: 1000}
 compile: {c: -O2 -std=c11, cpp: -O2 -std=c++11, java: '', pas: -O2, py: ''}
-data: []
+data:
+- cases: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 folder: problem
 memory limit: 512 MB
 name: count
 partial score: false
 pre: []
-samples: []
+samples:
+- cases: [1]
 time limit: 1.0
 title: {zh-cn: 好图计数}
 type: program
-users: {}
+users:
+  '613':
+    n2_nice.cpp:
+      expected: []
+      path: 613/n2_nice.cpp
+    n2_ugly.cpp:
+      expected: []
+      path: 613/n2_ugly.cpp
+    n2logn_dp.cpp:
+      expected: []
+      path: 613/n2logn_dp.cpp
+    n2logn_dp2.cpp:
+      expected: []
+      path: 613/n2logn_dp2.cpp
+    std.cpp: {expected: == 100, path: 613/std.cpp}
+  FoolMike:
+    Mike_n2logn.cpp:
+      expected: []
+      path: FoolMike/Mike_n2logn.cpp
 version: 2

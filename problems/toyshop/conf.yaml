@@ -10,7 +10,7 @@ partial score: false
 pre: []
 samples:
 - cases: [1]
-time limit: 2.0
+time limit: 2.5
 title: {zh-cn: 弗雷兹的玩具商店}
 type: program
 users:
