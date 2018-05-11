@@ -38,10 +38,11 @@ int main(int argc,char** argv){
 	int m=inf.readInt(1,maxm,"m");
 	readEOLN();
 
-	
+	int sumk=0;
 	for (int i=1;i<=n;++i){
 		int k=inf.readInt(1,maxk,format("k[%d]",i));
 		inf.readSpace();
+		sumk+=k;
 		inf.readInt(1,2,format("r[%d]",i));
 		for (int j=1;j<=k;++j){
 			inf.readSpace();
@@ -51,6 +52,7 @@ int main(int argc,char** argv){
 		}
 		readEOLN();
 	}
+	ensuref(sumk<=maxSumk,"sumk = %d > %d",sumk,maxSumk);
 	for (int i=1;i<=m;++i){
 		int op=inf.readInt(1,2,format("op[%d]",i));
 		inf.readSpace();
