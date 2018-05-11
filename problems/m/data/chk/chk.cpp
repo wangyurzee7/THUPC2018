@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
     }
     //info << ans;
 
-    if (found(ans, "kangnaixin") || found(ans, "carnation") || found(ans, "dianthus") || found(ans,"caryophyllus")) {
+    if (found(ans, "kangnaixin") || found(ans, "carnation") || found(ans, "dianthus") || found(ans,"caryophyllus") || found(ans,"shizhu") || found(ans,"xiangshizhu")) {
         AC();
     } else {
         WA();
