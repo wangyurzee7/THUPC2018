@@ -26,6 +26,7 @@ int main(){
 	if (n==2){
 		printf("1 %d\n",2*cost[1]);
 		printf("1 1");
+		return 0;
 	}
 	dp[0]=cost[1]*n;
 	for (int i=1;i<=n-2;++i){
