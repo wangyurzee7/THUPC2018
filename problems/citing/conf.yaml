@@ -1,5 +1,5 @@
 args: {n: 1500}
-compile: {c: -O2 -std=c14, cpp: -O2 -std=c++14, java: '', pas: -O2, py: ''}
+compile: {c: -O2 -std=c11, cpp: -O2 -std=c++11, java: '', pas: -O2, py: ''}
 data:
 - cases: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 - cases: [11, 12, 13, 14]
@@ -12,7 +12,7 @@ pre:
 - cases: [1]
 samples:
 - cases: [1]
-time limit: 10.0
+time limit: 12.0
 title: {zh-cn: 赛艇}
 type: program
 users:
