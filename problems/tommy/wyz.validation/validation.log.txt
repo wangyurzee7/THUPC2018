@@ -1,0 +1,18 @@
+make: `validate' is up to date.
+Validating testdata "../data/1.in"...  OK!!
+Validating testdata "../data/2.in"...  OK!!
+Validating testdata "../data/3.in"...  OK!!
+Validating testdata "../data/4.in"...  OK!!
+Validating testdata "../data/5.in"...  OK!!
+Validating testdata "../data/6.in"...  OK!!
+Validating testdata "../data/7.in"...  OK!!
+Validating testdata "../data/8.in"...  OK!!
+Validating testdata "../data/9.in"...  OK!!
+Validating testdata "../data/10.in"...  OK!!
+Validating testdata "../data/11.in"...  OK!!
+Validating testdata "../data/12.in"...  OK!!
+Validating testdata "../data/13.in"...  OK!!
+Validating testdata "../data/14.in"...  OK!!
+Validating testdata "../data/15.in"...  OK!!
+Testcase#16 Nout Found.All the datas are checked!
+[ Invalid Testcase Id ]:
