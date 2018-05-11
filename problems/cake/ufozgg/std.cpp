@@ -28,8 +28,10 @@ int main()
 		for(int i=1;i<=4;++i)
 			scanf("%lld",g+i);
 		dfs(1,1,8);
-		for(int i=0;i<=8;++i)
-			printf("%lld ",cnt[i]);
+		for(int i=0;i<=8;++i){
+			printf("%lld",cnt[i]);
+			if (i<8) putchar(' ');
+		}
 		puts("");
 	}
 	return 0;

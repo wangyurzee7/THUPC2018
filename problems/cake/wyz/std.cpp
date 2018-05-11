@@ -38,7 +38,7 @@ void work(){
 		ans[0]=(a-2)*(b-2)*(c-2)%P*(d-2);
 	}
 	for (int i=0;i<=8;++i){
-		printf("%d",int(ans[i]%P));
+		printf("%lld",ans[i]%P);
 		if (i==8) puts("");
 		else putchar(' ');
 	}
