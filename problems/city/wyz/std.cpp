@@ -23,8 +23,8 @@ int main(){
 		}
 		cost[i]%=mod;
 	}
-	if (n==2){
-		printf("1 %d\n",2*cost[1]);
+	if (n<=2){
+		printf("1 %d\n",n*cost[1]);
 		printf("1 1");
 		return 0;
 	}
