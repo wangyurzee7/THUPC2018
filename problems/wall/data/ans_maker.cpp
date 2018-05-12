@@ -153,7 +153,7 @@ int main()
 			}
 			memset(vis,0,sizeof(vis));
 			ans=0.0;bfs(tmp,u);
-			printf("%.8lf\n",ans);
+			printf("%.4lf\n",ans);
 		}
 	}
 	return 0;
