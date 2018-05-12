@@ -212,7 +212,7 @@ void work(){
 			T1.cut(v,fa[v]),T2.link(v,fa[v]);
 		tp[v]=3-tp[v];
 	}
-	else printf("%.10lf\n",(qt[i]==1?T2:T1).query(qv[i]));
+	else printf("%.4lf\n",(qt[i]==1?T2:T1).query(qv[i]));
 }
 int main()
 {
