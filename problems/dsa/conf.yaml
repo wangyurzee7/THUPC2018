@@ -12,7 +12,7 @@ partial score: false
 pre: []
 samples:
 - cases: [1]
-time limit: 1.0
+time limit: 1.5
 title: {zh-cn: 《算法与数据结构》小助教招募通知}
 type: program
 users:

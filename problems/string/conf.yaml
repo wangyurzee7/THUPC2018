@@ -15,6 +15,7 @@ type: program
 users:
   wyz:
     std.cpp: {expected: == 100, path: wyz/std.cpp}
+    valistd.cpp: {expected: == 100, path: wyz/valistd.cpp}
   yjq:
     yjq.cpp:
       expected: []

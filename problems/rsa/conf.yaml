@@ -10,7 +10,7 @@ pre:
 - cases: [1]
 samples:
 - cases: [1]
-time limit: 1.5
+time limit: 1.0
 title: {zh-cn: 密码学第三次小作业}
 type: program
 users:

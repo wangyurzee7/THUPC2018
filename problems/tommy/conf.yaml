@@ -9,7 +9,7 @@ partial score: false
 pre: []
 samples:
 - cases: [1]
-time limit: 7.0
+time limit: 10.0
 title: {zh-cn: 淘米神的树}
 type: program
 users:

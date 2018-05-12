@@ -10,7 +10,7 @@ partial score: false
 pre: []
 samples:
 - cases: [1]
-time limit: 1.5
+time limit: 1.0
 title: {zh-cn: 为最美的那位献上花朵}
 type: program
 users:

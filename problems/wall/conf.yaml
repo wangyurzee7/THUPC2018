@@ -9,7 +9,7 @@ name: wall
 partial score: false
 pre: []
 samples: []
-time limit: 100.0
+time limit: 3.0
 title: {zh-cn: 琪亚娜之墙}
 type: program
 users:
