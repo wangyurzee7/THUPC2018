@@ -48,28 +48,32 @@ for i in range(2,top+1):
 		prime.append(i)
 # print(prime)
 ######
-T=10000
-print(T)
-for __ in range(T):
-	p=bigp[np.random.randint(num)]
-	q=bigp[np.random.randint(num)]
-	n=p*q
-	r=(p-1)*(q-1)
-	while True:
-		e=prime[np.random.randint(len(prime))]
-		if gcd(r,e)==1 and e<r:
-			break
-	e1=e
-	while True:
-		e=prime[np.random.randint(len(prime))]
-		if gcd(r,e)==1 and gcd(e,e1)==1 and e<r:
-			break
-	e2=e
-	while True:
-		m=int(np.random.rand()*n)
-		# m=19260817
-		if(gcd(n,m)==1):
-			break
-	c1=power(m,e1,n)
-	c2=power(m,e2,n)
-	print('%d %d %d %d %d'%(c1,c2,e1,e2,n))
+pre='1'
+with open(pre+'.in','w') as fi:
+	with open(pre+'.ans','w') as fo:
+		T=10000
+		fi.write('%d\n'%T)
+		for __ in range(T):
+			p=bigp[np.random.randint(num)]
+			q=bigp[np.random.randint(num)]
+			n=p*q
+			r=(p-1)*(q-1)
+			while True:
+				e=prime[np.random.randint(len(prime))]
+				if gcd(r,e)==1 and e<r:
+					break
+			e1=e
+			while True:
+				e=prime[np.random.randint(len(prime))]
+				if gcd(r,e)==1 and gcd(e,e1)==1 and e<r:
+					break
+			e2=e
+			while True:
+				m=int(np.random.rand()*n)
+				# m=19260817
+				if(gcd(n,m)==1):
+					break
+			fo.write('%d\n'%m)
+			c1=power(m,e1,n)
+			c2=power(m,e2,n)
+			fi.write('%d %d %d %d %d\n'%(c1,c2,e1,e2,n))
